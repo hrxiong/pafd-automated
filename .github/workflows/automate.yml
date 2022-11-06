@@ -22,11 +22,11 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          pip install --upgrade urllib3==1.25.11
           pip install opencv-python==4.5.4.60
           pip install easyocr pillow numpy
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     
       - name: run
-        run: |
-          export https_proxy=https://185.157.1.249:3128
+        run:
           STD_ID=${{ secrets.STD_ID }} PASSWORD=${{ secrets.PASSWORD }} python3 main.py

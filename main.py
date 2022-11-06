@@ -34,6 +34,7 @@ class Fudan:
         :param url_login: 登录页，默认服务为空
         """
         self.session = session()
+        self.session.proxies.update({'http': 'http://45.8.104.38:80'})
         self.session.keep_alive = False
         self.session.headers['User-Agent'] = self.UA
         self.url_login = url_login

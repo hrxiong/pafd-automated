@@ -35,7 +35,10 @@ class Fudan:
         """
         self.proxies = {'http': 'http://185.157.1.249:3128'}
         self.session = session()
+<<<<<<< HEAD
         # self.session.proxies.update()
+=======
+>>>>>>> 2c2dcdffdea91303e6b3cd74161a55147dfe5102
         self.session.keep_alive = False
         self.session.headers['User-Agent'] = self.UA
         self.url_login = url_login

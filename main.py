@@ -33,8 +33,9 @@ class Fudan:
         :param psw: 密码
         :param url_login: 登录页，默认服务为空
         """
+        self.proxies = {'http': 'http://185.157.1.249:3128'}
         self.session = session()
-        self.session.proxies.update({'https': 'https://185.157.1.249:3128'})
+        # self.session.proxies.update()
         self.session.keep_alive = False
         self.session.headers['User-Agent'] = self.UA
         self.url_login = url_login
@@ -141,7 +142,7 @@ class Zlapp(Fudan):
         """
         print("◉检测是否已提交")
         get_info = self.session.get(
-            'https://zlapp.fudan.edu.cn/ncov/wap/fudan/get-info')
+            'https://zlapp.fudan.edu.cn/ncov/wap/fudan/get-info', proxies=self.proxies)
         last_info = get_info.json()
 
         print("◉上一次提交日期为:", last_info["d"]["info"]["date"])
